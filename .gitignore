@@ -134,3 +134,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+src/gmail_creds\.json
+
+src/gmail_secret\.json

@@ -138,3 +138,5 @@ dmypy.json
 src/gmail_creds\.json
 
 src/gmail_secret\.json
+
+src/email_password\.txt

@@ -1,20 +1,18 @@
-import json
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import smtplib
 
-with open("gmail_creds.json") as gmail_creds:
-    content = json.load(gmail_creds)
-email_address = content["email-address"]
-email_password = content["email-password"]
+msg = MIMEMultipart()
+msg["From"] = "matthewgleich@gmai.com"
+msg["To"] = "matthewgleich@icloud.com"
+with open("email_password.txt") as password_file:
+    password = password_file.read().strip("\n")
+msg["Subject"] = "Hello World!"
+body = "<h1>This works!! Yay!</h1>"
+msg.attach(MIMEText(body, "html"))
 
-with smtplib.SMTP('stmp.gmail.com', 8080) as smtp:
-    smtp.ehlo()
-    smtp.startssl()
-    smtp.ehlo()
-
-    smtplib.login(email_address, email_password)
-    subject = "Grab dinner this weekend?"
-    body = "How about dinner at 6pm this Saturday?"
-
-    msg = f"Subject: {subject}\n\n{body}"
-
-    smtp.sendmail(email_address, "matthewgleich@gmail.com", msg) 
+server = smtplib.SMTP("smtp.gmail.com", 587)
+server.starttls()
+server.login(msg["From"], password)
+server.sendmail(msg["From"], msg["To"], msg.as_string())
+server.quit()

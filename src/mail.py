@@ -10,6 +10,9 @@ def send_email(html_content, recipient, subject):
         html_content {string} -- html to send
         recipient {string} -- who the email will be sent too
         subject {string} -- what the subject of the email should be
+    
+    Returns:
+        bool -- True to signify that the email was sent
     """
     msg = MIMEMultipart()
     msg["From"] = "ghsappbot@gmail.com"
@@ -24,6 +27,7 @@ def send_email(html_content, recipient, subject):
     server.login(msg["From"], password)
     server.sendmail(msg["From"], msg["To"], msg.as_string())
     server.quit()
+    return True
 
 
 # Testing

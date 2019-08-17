@@ -3,8 +3,8 @@ from email.mime.text import MIMEText
 import smtplib
 
 msg = MIMEMultipart()
-msg["From"] = "matthewgleich@gmai.com"
-msg["To"] = "matthewgleich@icloud.com"
+msg["From"] = "ghsappbot@gmail.com"
+msg["To"] = "matthewgleich@gmail.com"
 with open("email_password.txt") as password_file:
     password = password_file.read().strip("\n")
 msg["Subject"] = "Hello World!"

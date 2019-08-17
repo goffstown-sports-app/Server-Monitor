@@ -18,19 +18,3 @@ import codecs
 # server.sendmail(msg["From"], msg["To"], msg.as_string())
 # server.quit()
 
-def read_html_file(file_name):
-    """Reads an HTMl file and saves each line in an array as a string
-    
-    Arguments:
-        file_name {str} -- path to the file, if in current directory then just the file name
-    
-    Returns:
-        list -- list of all the lines
-    """
-    file = codecs.open(file_name)
-    file_contents = file.read()
-    lines = file_contents.split("\n")
-    return lines
-
-# Testing:
-# print(read_html_file("problem.html"))

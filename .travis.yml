@@ -12,3 +12,4 @@ install:
 script:
   - cd src/tests
   - python test-src-mail.py
+  - python test-utils-generic.py

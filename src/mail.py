@@ -26,5 +26,6 @@ def send_email(html_content, recipient, subject):
     
 
 # Testing
-# send_email('<h1 style="color: red">Problem Detected</h1>\n<p>Looks like there is an error in one of the programs. Below is some information</p>', "matthewgleich@gmail.com", "Testing Testing")
-    
+# import codecs
+# file = codecs.open("test.html", "r")
+# send_email(file.read(), "matthewgleich@gmail.com", "Testing Testing")

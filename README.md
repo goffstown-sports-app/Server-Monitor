@@ -1,6 +1,8 @@
 _Remember, documentation always comes last_
 
-# Project Title
+# Server Monitor
+
+[![Build Status](https://travis-ci.com/goffstown-sports-app/Server-Monitor.svg?branch=master)](https://travis-ci.com/goffstown-sports-app/Server-Monitor)
 
 One Paragraph of project description goes here
 

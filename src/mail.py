@@ -33,4 +33,4 @@ def read_html_file(file_name):
     return lines
 
 # Testing:
-print(read_html_file("problem.html"))
+# print(read_html_file("problem.html"))

@@ -2,15 +2,16 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 
+
 def send_email(html_content, recipient, subject):
     """Send an html file to someone
-    
+
     Arguments:
         html_content {string} -- html to send
         recipient {string} -- who the email will be sent too
         subject {string} -- what the subject of the email should be
     """
-    msg = MIMEMultipart() 
+    msg = MIMEMultipart()
     msg["From"] = "ghsappbot@gmail.com"
     msg["To"] = recipient
     with open("email_password.txt") as password_file:
@@ -23,7 +24,7 @@ def send_email(html_content, recipient, subject):
     server.login(msg["From"], password)
     server.sendmail(msg["From"], msg["To"], msg.as_string())
     server.quit()
-    
+
 
 # Testing
 # import codecs

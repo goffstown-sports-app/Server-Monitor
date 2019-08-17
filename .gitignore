@@ -1,3 +1,6 @@
+# GMAIL Bot Credentials
+src/email_password\.txt
+
 # Vim unsaved_changes:
 .swp
 
@@ -134,9 +137,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-src/gmail_creds\.json
-
-src/gmail_secret\.json
-
-src/email_password\.txt

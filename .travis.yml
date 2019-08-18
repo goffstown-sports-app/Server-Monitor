@@ -8,8 +8,8 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_adeed957da41_key -iv $encrypted_adeed957da41_iv
     -in encrypted_files.tar.gz.enc -out encrypted_files.tar.gz -d
   - tar xvf encrypted_files.tar.gz
-  - mv email_password.txt src/tests
-  - mv firestore_creds.json src/tests
+  - mv src/email_password.txt src/tests
+  - mv src/firestore_creds.json src/tests
 install:
   - pip install -r requirements.txt
 script:

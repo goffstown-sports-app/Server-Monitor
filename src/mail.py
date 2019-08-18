@@ -32,5 +32,5 @@ def send_email(html_content, recipient, subject):
 
 # Testing
 # import codecs
-# file = codecs.open("test.html", "r")
+# file = codecs.open("tests/test.html", "r")
 # send_email(file.read(), "matthewgleich@gmail.com", "Testing Testing")

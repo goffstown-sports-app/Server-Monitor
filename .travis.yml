@@ -1,10 +1,7 @@
 dist: xenial
 language: python
-python:
-  - 3.7
-  - 3.6
-  - 3.7-dev
 before_install:
+  - export TZ=america/new-york
   - openssl aes-256-cbc -K $encrypted_adeed957da41_key -iv $encrypted_adeed957da41_iv
     -in encrypted_files.tar.gz.enc -out encrypted_files.tar.gz -d
   - tar xvf encrypted_files.tar.gz
@@ -12,7 +9,30 @@ before_install:
   - mv src/firestore_creds.json src/tests
 install:
   - pip install -r requirements.txt
-script:
-  - cd src/tests
-  - python test-src-mail.py
-  - python test-utils-generic.py
+jobs:
+  include:
+    - stage: Python3.6
+      python: 3.6
+      script:
+        - cd src/tests
+        - python test-src-database.py
+        - python test-src-mail.py
+        - python test-utils-generic.py
+    - stage: Python3.7
+      python: 3.7
+      script:
+        - cd src/tests
+        - python test-src-database.py
+        - python test-src-mail.py
+        - python test-utils-generic.py
+    - stage: Python3.7-dev
+      python: 3.7-dev
+      script:
+        - cd src/tests
+        - python test-src-database.py
+        - python test-src-mail.py
+        - python test-utils-generic.py
+stages:
+  - Python3.6
+  - Python3.7
+  - Python3.7-dev

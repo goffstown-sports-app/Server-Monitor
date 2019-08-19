@@ -25,10 +25,11 @@ def main():
     recent_problems = []
     while True:
         try:
+            time_diff = 4
             database.update_pulse(1, "Server-Monitor")
+            database.set_monitoring_info(True, time_diff)
             db_info_ref = db.reference("db-info").get()
             monitoring_info = db_info_ref["monitoring"]
-            problem = 0
             with open("email_list.txt") as email_list_file:
                 email_list = email_list_file.read().split("\n")
             for service_name in monitoring_info:
@@ -40,7 +41,7 @@ def main():
                         service_pulse_time)
                     time_diff = current_time - datetime_version_of_pulse_time
                     seconds_diff = time_diff.seconds
-                    if seconds_diff > service_info["pulse-time-diffs-(secs)"]:
+                    if seconds_diff > service_info["pulse-time-diffs-(secs)"] and service_name not in recent_problems:
                         with codecs.open("problem.html", "r") as problem_html:
                             problem_html_lines = problem_html.read()
                         filled_html_file = problem_html_lines.format(
@@ -48,7 +49,7 @@ def main():
                         for email in email_list:
                             mail.send_email(
                                 filled_html_file, email, "Problem with " + service_name)
-                        problem += 1
+                        recent_problems.append(service_name)
                     elif service_name in recent_problems:
                         with codecs.open("good_status.html", "r") as good_status_html:
                             good_status_lines = good_status_html.read()
@@ -57,7 +58,8 @@ def main():
                         for email in email_list:
                             mail.send_email(filled_html_file,
                                             email, service_name + "Fixed")
-            sleep(10)
+                        recent_problems.remove(service_name)
+            sleep(time_diff)
         except:
             sleep(5)
             continue

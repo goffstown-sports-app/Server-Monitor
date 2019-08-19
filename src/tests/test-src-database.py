@@ -1,4 +1,3 @@
-import database
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
@@ -6,6 +5,7 @@ import unittest
 import sys
 
 sys.path.append("..")
+import database
 
 
 class TestDatabase(unittest.TestCase):

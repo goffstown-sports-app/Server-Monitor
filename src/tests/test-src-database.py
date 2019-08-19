@@ -1,3 +1,4 @@
+import database
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
@@ -5,7 +6,6 @@ import unittest
 import sys
 
 sys.path.append("..")
-import database
 
 
 class TestDatabase(unittest.TestCase):
@@ -15,33 +15,15 @@ class TestDatabase(unittest.TestCase):
     def test_set_monitoring_info(self):
         """Tests for the send email function
         """
-        cred = credentials.Certificate("firestore_creds.json")
-        firebase_admin.initialize_app(
-            cred, {
-                "databaseURL": "https://ghs-app-5a0ba.firebaseio.com/",
-                'databaseAuthVariableOverride': {
-                    'uid': 'my-service-worker'
-            }
-        })
         diff_time = 10
         result = database.set_monitoring_info(True, diff_time)
         ref = db.reference("db-info/monitoring/Server-Monitor")
         self.assertEqual(ref.get(), result)
 
-
     def test_update_pulse(self):
         """
         Test for the update_pulse function
         """
-        service_name = "Server-Monitor-CI"
-        cred = credentials.Certificate("firestore_creds.json")
-        firebase_admin.initialize_app(
-            cred, {
-                "databaseURL": "https://ghs-app-5a0ba.firebaseio.com/",
-                'databaseAuthVariableOverride': {
-                    'uid': 'my-service-worker'
-                }
-            })
         instance = database.update_pulse(1, service_name)
         ref = db.reference("db-info/pulses/" + service_name)
         ref_data = ref.get()
@@ -49,4 +31,13 @@ class TestDatabase(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    service_name = "Server-Monitor-CI"
+    cred = credentials.Certificate("firestore_creds.json")
+    firebase_admin.initialize_app(
+        cred, {
+            "databaseURL": "https://ghs-app-5a0ba.firebaseio.com/",
+            'databaseAuthVariableOverride': {
+                'uid': 'my-service-worker'
+            }
+        })
     unittest.main()

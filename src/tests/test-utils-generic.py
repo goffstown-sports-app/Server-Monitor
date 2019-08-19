@@ -6,7 +6,7 @@ sys.path.append("..")
 from utils import generic
 
 
-class UnitTest(unittest.TestCase):
+class TestGeneric(unittest.TestCase):
     """
     Will run unittests for the /src/utils/generic.py
     """

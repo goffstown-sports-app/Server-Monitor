@@ -1,4 +1,7 @@
 from firebase_admin import db
+import datetime
+import platform
+import os
 
 
 def set_monitoring_info(email_notifications, pulse_time_diff_secs):

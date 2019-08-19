@@ -15,9 +15,8 @@ def cast_regular_as_datetime(regular_time):
     month = int(date_section[1])
     day = int(date_section[2])
     day_section = regular_time.split(" ")[1].split(":")
-    print(day_section)
     hour = int(day_section[0])
     minute = int(day_section[1])
-    second = int(float(date_section[2]))
+    second = int(float(day_section[2]))
     datetime_object = datetime(year, month, day, hour, minute, second)
     return datetime_object

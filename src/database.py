@@ -26,9 +26,11 @@ def set_monitoring_info(email_notifications, pulse_time_diff_secs):
 
 def update_pulse(consecutive_number_of_runs, service_name):
     """Updates the pulse for this application
+
     Arguments:
         consecutive_number_of_runs {int} -- how many times the application has ran in a row
         service_name {str} -- name of the service
+
     Returns:
         dict -- what the pulse was set as in the database
     """

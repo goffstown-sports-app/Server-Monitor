@@ -18,6 +18,7 @@ jobs:
         - python test-src-database.py
         - python test-src-mail.py
         - python test-utils-generic.py
+        - python test-utils-datetime_utils.py
     - stage: Python3.7
       python: 3.7
       script:
@@ -25,6 +26,7 @@ jobs:
         - python test-src-database.py
         - python test-src-mail.py
         - python test-utils-generic.py
+        - python test-utils-datetime_utils.py
     - stage: Python3.7-dev
       python: 3.7-dev
       script:
@@ -32,6 +34,7 @@ jobs:
         - python test-src-database.py
         - python test-src-mail.py
         - python test-utils-generic.py
+        - python test-utils-datetime_utils.py
 stages:
   - Python3.6
   - Python3.7

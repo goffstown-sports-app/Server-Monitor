@@ -20,8 +20,9 @@ class TestDatetimeUtils(unittest.TestCase):
         self.assertEqual(result.year, 2019)
         self.assertEqual(result.month, 8)
         self.assertEqual(result.day, 19)
-        self.assertEqual(result.minute, 5)
-        self.assertEqual(result.second, 51)
+        self.assertEqual(result.hour, 5)
+        self.assertEqual(result.minute, 51)
+        self.assertEqual(result.second, 46)
 
 
 if __name__ == '__main__':

@@ -34,7 +34,7 @@ class TestDatabase(unittest.TestCase):
         Test for the update_pulse function
         """
         service_name = "Server-Monitor-CI"
-        cred = credentials.Certificate("./../firestore_creds.json")
+        cred = credentials.Certificate("firestore_creds.json")
         firebase_admin.initialize_app(
             cred, {
                 "databaseURL": "https://ghs-app-5a0ba.firebaseio.com/",

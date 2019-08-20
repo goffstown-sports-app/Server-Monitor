@@ -58,7 +58,7 @@ def main():
                             program_name=service_name, pulse_rate=service_info["pulse-time-diffs-(secs)"])
                         for email in email_list:
                             mail.send_email(filled_html_file,
-                                            email, service_name + "Fixed")
+                                            email, service_name + " Fixed")
                         recent_problems.remove(service_name)
             sleep(time_diff)
         except:

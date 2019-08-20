@@ -2,7 +2,13 @@ _Remember, documentation always comes last_
 
 # Server Monitor
 
-[![Build Status](https://travis-ci.com/goffstown-sports-app/Server-Monitor.svg?branch=master)](https://travis-ci.com/goffstown-sports-app/Server-Monitor)
+## Services
+
+| Service Name | Badge                                                                                                                                                                                                                                                                                           | Description                   |
+|-------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| Synk         | [![Known Vulnerabilities](https://snyk.io/test/github/goffstown-sports-app/Server-Monitor/badge.svg)](https://snyk.io/test/github/goffstown-sports-app/Server-Monitor)                                                                                                              | Security Monitoring           |
+| Travis CI    | [![Build Status](https://travis-ci.com/goffstown-sports-app/Server-Monitor.svg?branch=master)](https://travis-ci.com/goffstown-sports-app/Server-Monitor)                                                                                                                           | Continous Integration Service |
+| Codacy       | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/79e012cb6bc4425ba829dd60aa517c87)](https://app.codacy.com/app/matthewgleich/Server-Monitor?utm_source=github.com&utm_medium=referral&utm_content=goffstown-sports-app/Server-Monitor&utm_campaign=Badge_Grade_Settings) | Cloud based linter            |
 
 One Paragraph of project description goes here
 

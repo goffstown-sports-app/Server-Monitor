@@ -2,7 +2,6 @@ import firebase_admin
 from firebase_admin import db
 from firebase_admin import credentials
 import datetime
-from datetime import timedelta
 from time import sleep
 import codecs
 

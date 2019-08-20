@@ -23,10 +23,12 @@ def main():
             }
         })
     recent_problems = []
+    pulse_amount = 0
     while True:
         try:
             time_diff = 4
-            database.update_pulse(1, "Server-Monitor")
+            pulse_amount += 1
+            database.update_pulse(pulse_amount, "Server-Monitor")
             database.set_monitoring_info(True, time_diff)
             db_info_ref = db.reference("db-info").get()
             monitoring_info = db_info_ref["monitoring"]
@@ -50,7 +52,7 @@ def main():
                             mail.send_email(
                                 filled_html_file, email, "Problem with " + service_name)
                         recent_problems.append(service_name)
-                    elif service_name in recent_problems:
+                    elif service_name in recent_problems and seconds_diff < service_info["pulse-time-diffs-(secs)"]:
                         with codecs.open("good_status.html", "r") as good_status_html:
                             good_status_lines = good_status_html.read()
                         filled_html_file = good_status_lines.format(

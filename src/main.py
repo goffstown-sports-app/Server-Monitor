@@ -46,7 +46,7 @@ def main():
                         with codecs.open("problem.html", "r") as problem_html:
                             problem_html_lines = problem_html.read()
                         filled_html_file = problem_html_lines.format(
-                            program_name=service_name, pulse_rate=service_info["pulse-time-diffs-(secs)"])
+                            program_name=service_name, pulse_rate=service_info["pulse-time-diffs-(secs)"], pulse_time_delta=service_info["pulse-time-diffs-(secs)"])
                         for email in email_list:
                             mail.send_email(
                                 filled_html_file, email, "Problem with " + service_name)

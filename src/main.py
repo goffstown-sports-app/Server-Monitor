@@ -35,7 +35,8 @@ def main():
             with open("email_list.txt") as email_list_file:
                 email_list = email_list_file.read().split("\n")
             for service_name in monitoring_info:
-                clear_output(50)
+                clear_output(5)
+                print("--------------------------------")
                 print("Checking:", service_name)
                 service_info = monitoring_info[service_name]
                 print("Service Information:", service_info)

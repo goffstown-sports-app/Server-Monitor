@@ -1,6 +1,4 @@
-_Remember, documentation always comes last_
-
-# Server Monitor
+# Server-Monitor
 
 ## Services
 
@@ -10,88 +8,31 @@ _Remember, documentation always comes last_
 | Travis CI    | [![Build Status](https://travis-ci.com/goffstown-sports-app/Server-Monitor.svg?branch=master)](https://travis-ci.com/goffstown-sports-app/Server-Monitor)                                                                                                                           | Continous Integration Service |
 | Codacy       | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/79e012cb6bc4425ba829dd60aa517c87)](https://app.codacy.com/app/matthewgleich/Server-Monitor?utm_source=github.com&utm_medium=referral&utm_content=goffstown-sports-app/Server-Monitor&utm_campaign=Badge_Grade_Settings) | Cloud based linter            |
 
-One Paragraph of project description goes here
+## Description
 
-## Getting Started
+The server monitor application works off of database pulses. Each micro service sends a pulse to the database every time it runs. The server monitor application looks all the last pulse time for each micro service and checks the make sure it was updated on time. If it didn't update in time, then everyone on the email list will be notified.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Features
 
-### Prerequisites
+Below is a list of all the features of this program:
 
-What things you need to install the software and how to install them
+1. Send email when program didn't update on time
+2. Send email when program is back on time.
 
-```
-Give examples
-```
+## Requirements
 
-### Installing
+To see working python version look at the .travis.yml
 
-A step by step series of examples that tell you how to get a development env running
+Install the requirements by doing the following:
 
-Say what the step will be
+`pip install -r requirements.txt`
 
-```
-Give the example
-```
+## Usage
 
-And repeat
+Once you have installed the requirements, you can now run the program! You run the program by inputting the following command once you are in the src folder:
 
-```
-until finished
-```
+`python main.py`
 
-End with an example of getting some data out of the system or using it for a little demo
+## Contributors
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* [Matthew Gleich](https://github.com/Matt-Gleich) (@Matt-Gleich)

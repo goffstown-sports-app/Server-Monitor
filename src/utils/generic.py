@@ -27,3 +27,12 @@ def check_type(item, expected_type):
     else:
         raise TypeError("{a} isn't a {b}".format(a=object, b=expected_type))
     return item_type
+
+def clear_output(line_amount):
+    """Clear output screen
+    
+    Arguments:
+        line_amount {int} -- number of lines to print out
+    """
+    for i in range(line_amount):
+        print("\n")

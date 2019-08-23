@@ -8,6 +8,7 @@ import codecs
 import database
 import mail
 from utils import datetime_utils
+from utils.generic import clear_output
 
 
 def main():
@@ -34,7 +35,10 @@ def main():
             with open("email_list.txt") as email_list_file:
                 email_list = email_list_file.read().split("\n")
             for service_name in monitoring_info:
+                clear_output(50)
+                print("Checking:", service_name)
                 service_info = monitoring_info[service_name]
+                print("Service Information:", service_info)
                 if service_info["email-notification"]:
                     service_pulse_time = db_info_ref["pulses"][service_name]["Pulse-Time"]
                     current_time = datetime.datetime.now()
@@ -42,7 +46,9 @@ def main():
                         service_pulse_time)
                     time_diff = current_time - datetime_version_of_pulse_time
                     seconds_diff = time_diff.seconds
+                    print("Time Diff for Service:", seconds_diff)
                     if seconds_diff > service_info["pulse-time-diffs-(secs)"] and service_name not in recent_problems:
+                        print("Problem with", service_name, "sending email now")
                         with codecs.open("problem.html", "r") as problem_html:
                             problem_html_lines = problem_html.read()
                         filled_html_file = problem_html_lines.format(
@@ -52,6 +58,7 @@ def main():
                                 filled_html_file, email, "Problem with " + service_name)
                         recent_problems.append(service_name)
                     elif service_name in recent_problems and seconds_diff < service_info["pulse-time-diffs-(secs)"]:
+                        print(service_name, "is back online, sending email")
                         with codecs.open("good_status.html", "r") as good_status_html:
                             good_status_lines = good_status_html.read()
                         filled_html_file = good_status_lines.format(
@@ -60,6 +67,8 @@ def main():
                             mail.send_email(filled_html_file,
                                             email, service_name + " Fixed")
                         recent_problems.remove(service_name)
+                    else:
+                        print(service_name, "looks fine")
             sleep(time_diff)
         except:
             sleep(5)

@@ -15,7 +15,7 @@ class TestDatabase(unittest.TestCase):
     def test_set_monitoring_info(self):
         """Tests for the send email function
         """
-        diff_time = 10
+        diff_time = 4
         result = database.set_monitoring_info(True, diff_time)
         ref = db.reference("db-info/monitoring/Server-Monitor")
         self.assertEqual(ref.get(), result)

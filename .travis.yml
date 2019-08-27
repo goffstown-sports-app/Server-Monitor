@@ -35,7 +35,14 @@ jobs:
         - python test-src-mail.py
         - python test-utils-generic.py
         - python test-utils-datetime_utils.py
+    - stage: Docker-Container
+      python: 3.7
+      services: docker
+      script:
+        - docker build -f Dockerfile.dev -t mattgleich/server-monitor:latest .
+        - docker run mattgleich/server-monitor
 stages:
   - Python3.6
   - Python3.7
   - Python3.7-dev
+  - Docker-Container

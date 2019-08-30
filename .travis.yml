@@ -46,7 +46,7 @@ jobs:
         - docker build -f Dockerfile.dev -t mattgleich/server-monitor:latest .
         - docker run -e CI=true mattgleich/server-monitor
 stages:
-  - Python3.6
-  - Python3.7
-  - Python3.7-dev
   - Docker-Container
+  - Python3.7
+  - Python3.6
+  - Python3.7-dev

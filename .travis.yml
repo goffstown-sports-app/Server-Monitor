@@ -1,6 +1,5 @@
 sudo: required
 dist: xenial
-language: python
 before_install:
   - export TZ=america/new-york
   - openssl aes-256-cbc -K $encrypted_adeed957da41_key -iv $encrypted_adeed957da41_iv
@@ -8,12 +7,12 @@ before_install:
   - tar xvf encrypted_files.tar.gz
   - mv src/email_password.txt src/tests
   - mv src/firestore_creds.json src/tests
-install:
-  - pip install -r requirements.txt
 jobs:
   include:
     - stage: Python3.6
+      language: python
       python: 3.6
+      install: pip install -r requirements.txt
       script:
         - cd src/tests
         - python test-src-database.py
@@ -21,7 +20,9 @@ jobs:
         - python test-utils-generic.py
         - python test-utils-datetime_utils.py
     - stage: Python3.7
+      language: python
       python: 3.7
+      install: pip install -r requirements.txt
       script:
         - cd src/tests
         - python test-src-database.py
@@ -29,7 +30,9 @@ jobs:
         - python test-utils-generic.py
         - python test-utils-datetime_utils.py
     - stage: Python3.7-dev
+      language: python
       python: 3.7-dev
+      install: pip install -r requirements.txt
       script:
         - cd src/tests
         - python test-src-database.py
@@ -37,11 +40,11 @@ jobs:
         - python test-utils-generic.py
         - python test-utils-datetime_utils.py
     - stage: Docker-Container
-      python: 3.7
+      language: generic
       services: docker
       script:
         - docker build -f Dockerfile.dev -t mattgleich/server-monitor:latest .
-        - docker run mattgleich/server-monitor
+        - docker run -e CI=true mattgleich/server-monitor
 stages:
   - Python3.6
   - Python3.7

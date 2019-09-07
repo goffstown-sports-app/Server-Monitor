@@ -26,7 +26,7 @@ def main():
     pulse_amount = 0
     while True:
         try:
-            time_diff = 4
+            time_diff = 2
             pulse_amount += 1
             database.update_pulse(pulse_amount, "Server-Monitor")
             database.set_monitoring_info(True, time_diff)

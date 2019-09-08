@@ -18,6 +18,7 @@ Below is a list of all the features of this program:
 
 1. Send email when program didn't update on time
 2. Send email when program is back on time.
+3. Set a status for each program based on if it running or not
 
 ## Requirements
 

@@ -51,3 +51,26 @@ def update_pulse(consecutive_number_of_runs, service_name):
     }
     ref.set(ref_set)
     return ref_set
+
+
+def set_service_status(service_name, status, last_time_online, last_time_offline):
+    """Set a true or false status for each service
+    
+    Arguments:
+        service_name {string} -- name of the service
+        status {boolean} -- offline or not
+        last_time_online {string} -- time when application was last online
+        last_time_offline {string} -- time when application was last offline
+    
+    Returns:
+        dict -- what the application was set as
+    """
+    current_time = str(datetime.now())
+    ref = db.reference("status/" + service_name)
+    ref_set = {
+            "online": status,
+            "last_time_online": last_time_online,
+            "last_time_offline": last_time_offline
+        }
+    ref.set(ref_set)
+    return ref_set

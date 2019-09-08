@@ -34,20 +34,22 @@ def main():
             monitoring_info = db_info_ref["monitoring"]
             with open("email_list.txt") as email_list_file:
                 email_list = email_list_file.read().split("\n")
+            last_time_offline = {}
+            last_time_online = {}
             for service_name in monitoring_info:
                 clear_output(5)
                 print("--------------------------------")
                 print("Checking:", service_name)
                 service_info = monitoring_info[service_name]
                 print("Service Information:", service_info)
+                service_pulse_time = db_info_ref["pulses"][service_name]["Pulse-Time"]
+                current_time = datetime.datetime.now()
+                datetime_version_of_pulse_time = datetime_utils.cast_regular_as_datetime(
+                    service_pulse_time)
+                time_diff = current_time - datetime_version_of_pulse_time
+                seconds_diff = time_diff.seconds
+                print("Time Diff for Service:", seconds_diff)
                 if service_info["email-notification"]:
-                    service_pulse_time = db_info_ref["pulses"][service_name]["Pulse-Time"]
-                    current_time = datetime.datetime.now()
-                    datetime_version_of_pulse_time = datetime_utils.cast_regular_as_datetime(
-                        service_pulse_time)
-                    time_diff = current_time - datetime_version_of_pulse_time
-                    seconds_diff = time_diff.seconds
-                    print("Time Diff for Service:", seconds_diff)
                     if seconds_diff > service_info["pulse-time-diffs-(secs)"] and service_name not in recent_problems:
                         print("Problem with", service_name, "sending email now")
                         with codecs.open("problem.html", "r") as problem_html:
@@ -70,6 +72,16 @@ def main():
                         recent_problems.remove(service_name)
                     else:
                         print(service_name, "looks fine")
+                if service_name not in last_time_offline.keys():
+                    last_time_offline[service_name] = "N/A"
+                if service_info not in last_time_online.keys():
+                    last_time_online[service_name] = "N/A"
+                if seconds_diff > service_info["pulse-time-diffs-(secs)"]:
+                    last_time_offline[service_name] = str(datetime.now())
+                    database.set_service_status(service_name, False, last_time_online[service_name], last_time_offline[service_name])
+                else:
+                    last_time_online[service_name] = str(datetime.now())
+                    database.set_service_status(service_name, True, last_time_online[service_name], last_time_offline[service_name])
             sleep(time_diff)
         except:
             sleep(5)

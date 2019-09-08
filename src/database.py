@@ -65,11 +65,11 @@ def set_service_status(service_name, status, last_time_online, last_time_offline
     Returns:
         dict -- what the application was set as
     """
-    ref = db.reference("db-info/status/" + service_name)
+    ref = db.reference("db-info/statuses/" + service_name)
     ref_set = {
             "online": status,
-            "last_time_online": last_time_online,
-            "last_time_offline": last_time_offline
+            "last-time-online": last_time_online,
+            "last-time-offline": last_time_offline
         }
     ref.set(ref_set)
     return ref_set

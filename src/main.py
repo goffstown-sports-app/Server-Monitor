@@ -28,7 +28,7 @@ def main():
     last_time_online = {}
     while True:
         try:
-            time_till_next_run = 2
+            time_till_next_run = 7
             pulse_amount += 1
             database.update_pulse(pulse_amount, "Server-Monitor")
             database.set_monitoring_info(True, time_till_next_run)
@@ -93,6 +93,7 @@ def main():
             print("Error with program.")
             for i in range(5):
                 print(notice_line_string)
+            sleep(4)
 
 
 if __name__ == "__main__":

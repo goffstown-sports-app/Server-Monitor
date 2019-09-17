@@ -15,30 +15,21 @@ jobs:
       install: pip install -r requirements.txt
       script:
         - cd src/tests
-        - python test-src-database.py
-        - python test-src-mail.py
-        - python test-utils-generic.py
-        - python test-utils-datetime_utils.py
+        - pytest
     - stage: Python3.7
       language: python
       python: 3.7
       install: pip install -r requirements.txt
       script:
         - cd src/tests
-        - python test-src-database.py
-        - python test-src-mail.py
-        - python test-utils-generic.py
-        - python test-utils-datetime_utils.py
+        - pytest
     - stage: Python3.7-dev
       language: python
       python: 3.7-dev
       install: pip install -r requirements.txt
       script:
         - cd src/tests
-        - python test-src-database.py
-        - python test-src-mail.py
-        - python test-utils-generic.py
-        - python test-utils-datetime_utils.py
+        - pytest
     - stage: Docker-Container
       language: generic
       services: docker

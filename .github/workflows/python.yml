@@ -1,9 +1,8 @@
 on: [push, pull_request]
 
-runs-on: ubuntu-latest
-
 jobs:
   test:
+    runs-on: ubuntu-latest
     name: Python ${{ matrix.python }}
     strategy:
       matrix:

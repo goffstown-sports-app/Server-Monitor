@@ -1,9 +1,10 @@
 on: [push, pull_request]
+
 runs-on: ubuntu-latest
 
 jobs:
   test:
-    name: Python ${{ matrix.python }} on ubuntu-latest
+    name: Python ${{ matrix.python }}
     strategy:
       matrix:
         python: ["3.6", "3.7", "3.7-dev"]

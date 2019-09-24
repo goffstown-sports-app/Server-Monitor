@@ -23,13 +23,6 @@ jobs:
       script:
         - cd src/tests
         - pytest --emoji
-    - stage: Python3.7-dev
-      language: python
-      python: 3.7-dev
-      install: pip install -r requirements.txt
-      script:
-        - cd src/tests
-        - pytest --emoji
     - stage: Docker-Container
       language: generic
       services: docker
@@ -40,4 +33,3 @@ stages:
   - Docker-Container
   - Python3.7
   - Python3.6
-  - Python3.7-dev

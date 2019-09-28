@@ -27,7 +27,7 @@ jobs:
       language: generic
       services: docker
       script:
-        - docker build -f Dockerfile.dev -t mattgleich/server-monitor:latest .
+        - docker build -f dev.Dockerfile -t mattgleich/server-monitor:latest .
         - docker run -e CI=true mattgleich/server-monitor
 stages:
   - Docker-Container

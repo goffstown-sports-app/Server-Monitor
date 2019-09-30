@@ -1,0 +1,21 @@
+name: Docker-Hub 
+on:
+  push:
+    branches:
+    - master
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Login to Docker Hub
+        run: |
+          echo ${{ secrets.docker_password }} | docker login -u ${{ secrets.docker_id }} --password-stdin
+      - name: Building Production Image
+        run: |
+          docker build -t ghsapp/server-monitor .
+      - name: Pushing to Docker Hub
+        run: |
+          docker push ghsapp/server-monitor

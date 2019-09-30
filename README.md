@@ -1,5 +1,11 @@
 # Server-Monitor
 
+## Github Actions
+
+| Action:                                                                                                                                                                    | Action Description:         |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| [![Actions Status](https://github.com/goffstown-sports-app/Server-Monitor/workflows/Docker-Hub/badge.svg)](https://github.com/goffstown-sports-app/Server-Monitor/actions) | Pushing Image to Docker Hub |
+
 ## Services
 
 | Service Name | Badge                                                                                                                                                                                                                                                                                           | Description                   |

@@ -1,6 +1,10 @@
 # Base image
 FROM python:3.6-stretch
 
+# Meta for Docker Hub
+LABEL description="📂 Keeps an eye on the server. If something looks weird all maintainers get sent an email"
+LABEL maintainer="matthewgleich@gmail.com"
+
 # Fixing timezone:
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone

@@ -25,9 +25,8 @@ def test_set_monitoring_info():
     """
     diff_time = 4
     result = database.set_monitoring_info(True, diff_time)
-    ref = db.reference("db-info/monitoring/Server-MonitorCI")
+    ref = db.reference("db-info/monitoring/Server-Monitor")
     ref_data = ref.get()
-    ref.set({})
     assert ref_data == result
 
 def test_update_pulse():

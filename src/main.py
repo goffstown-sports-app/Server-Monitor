@@ -4,6 +4,7 @@ from firebase_admin import credentials
 import datetime
 from time import sleep
 import codecs
+from ghsTools import ghsTools
 
 import database
 import mail
@@ -29,8 +30,8 @@ def main():
     while True:
         time_till_next_run = 7
         pulse_amount += 1
-        database.update_pulse(pulse_amount, "Server-Monitor")
-        database.set_monitoring_info(True, time_till_next_run)
+        ghsTools().update_pulse(pulse_amount, "Server-Monitor")
+        ghsTools().set_monitoring_info(True, time_till_next_run, "Server-Monitor")
         db_info_ref = db.reference("db-info").get()
         monitoring_info = db_info_ref["monitoring"]
         with open("email_list.txt") as email_list_file:

@@ -27,11 +27,10 @@ def main():
     pulse_amount = 0
     last_time_offline = {}
     last_time_online = {}
+    ghsTools().set_monitoring_info(True, time_till_next_run, "Server-Monitor")
     while True:
         time_till_next_run = 7
         pulse_amount += 1
-        ghsTools().update_pulse(pulse_amount, "Server-Monitor")
-        ghsTools().set_monitoring_info(True, time_till_next_run, "Server-Monitor")
         db_info_ref = db.reference("db-info").get()
         monitoring_info = db_info_ref["monitoring"]
         with open("email_list.txt") as email_list_file:
@@ -81,10 +80,13 @@ def main():
                 last_time_online[service_name] = "N/A"
             if seconds_diff > service_info["pulse-time-diffs-(secs)"]:
                 last_time_offline[service_name] = str(datetime.datetime.now())
-                database.set_service_status(service_name, False, last_time_online[service_name], last_time_offline[service_name])
+                database.set_service_status(
+                    service_name, False, last_time_online[service_name], last_time_offline[service_name])
             else:
                 last_time_online[service_name] = str(datetime.datetime.now())
-                database.set_service_status(service_name, True, last_time_online[service_name], last_time_offline[service_name])
+                database.set_service_status(
+                    service_name, True, last_time_online[service_name], last_time_offline[service_name])
+        ghsTools().update_pulse(pulse_amount, "Server-Monitor")
         sleep(time_till_next_run)
 
 

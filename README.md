@@ -10,21 +10,21 @@
 
 | Service Name | Badge                                                                                                                                                                                                                                                                                           | Description                   |
 |-------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| Synk         | [![Known Vulnerabilities](https://snyk.io/test/github/goffstown-sports-app/Server-Monitor/badge.svg)](https://snyk.io/test/github/goffstown-sports-app/Server-Monitor)                                                                                                              | Security Monitoring           |
+| Synk         | [![Known Vulnerabilities](https://snyk.io/test/github/goffstown-sports-app/Server-Monitor/badge.svg)](https://synk.io/test/github/goffstown-sports-app/Server-Monitor)                                                                                                              | Security Monitoring           |
 | Travis CI    | [![Build Status](https://travis-ci.com/goffstown-sports-app/Server-Monitor.svg?branch=master)](https://travis-ci.com/goffstown-sports-app/Server-Monitor)                                                                                                                           | Continous Integration Service |
 | Codacy       | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/79e012cb6bc4425ba829dd60aa517c87)](https://app.codacy.com/app/matthewgleich/Server-Monitor?utm_source=github.com&utm_medium=referral&utm_content=goffstown-sports-app/Server-Monitor&utm_campaign=Badge_Grade_Settings) | Cloud based linter            |
 
 ## Description
 
-The server monitor application works off of database pulses. Each micro service sends a pulse to the database every time it runs. The server monitor application looks all the last pulse time for each micro service and checks the make sure it was updated on time. If it didn't update in time, then everyone on the email list will be notified.
+The server monitor application works off of database pulses. Each micro service sends a pulse to the database every time it runs. The server monitor application looks at the last pulse time for each micro service and checks to make sure it was updated on time. If it didn't update on time, then everyone on the email list will be notified via email.
 
 ## Features
 
 Below is a list of all the features of this program:
 
-1. Send email when the program didn't update on time
+1. Send email when the program doesn't update on time.
 2. Send email when the program is back on time.
-3. Set a status for each program based on if it running or not
+3. Set a status for each program based on if it is running or not.
 
 ## Requirements
 

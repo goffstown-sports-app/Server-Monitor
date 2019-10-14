@@ -16,15 +16,15 @@
 
 ## Description
 
-The server monitor application works off of database pulses. Each micro service sends a pulse to the database every time it runs. The server monitor application looks all the last pulse time for each micro service and checks the make sure it was updated on time. If it didn't update in time, then everyone on the email list will be notified.
+The server monitor application works off of database pulses. Each micro service sends a pulse to the database every time it runs. The server monitor application looks at the last pulse time for each micro service and checks to make sure it was updated on time. If it didn't update on time, then everyone on the email list will be notified via email.
 
 ## Features
 
 Below is a list of all the features of this program:
 
-1. Send email when the program didn't update on time
+1. Send email when the program doesn't update on time.
 2. Send email when the program is back on time.
-3. Set a status for each program based on if it running or not
+3. Set a status for each program based on if it is running or not.
 
 ## Requirements
 

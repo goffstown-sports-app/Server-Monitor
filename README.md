@@ -1,5 +1,7 @@
 # Server-Monitor
 
+![GitHub contributors](https://img.shields.io/github/contributors/goffstown-sports-app/Scrape-Calendar-Data)
+
 ## Github Actions
 
 | Action:                                                                                                                                                                    | Action Description:         |

@@ -10,6 +10,7 @@ RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 
 COPY /src /src
+COPY /tests /tests
 
-WORKDIR /src/tests
+WORKDIR /tests
 CMD ["pytest", "--emoji"]

@@ -1,7 +1,6 @@
 import datetime
-import sys
 
-sys.path.append("..")
+
 from utils import generic
 
 def test_check_type():

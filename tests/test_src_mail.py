@@ -1,7 +1,5 @@
-import sys
 import codecs
 
-sys.path.append("..")
 import mail
 
 def test_send_email():

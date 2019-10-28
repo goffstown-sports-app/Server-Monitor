@@ -5,8 +5,8 @@ before_install:
   -in encrypted_files.tar.gz.enc -out encrypted_files.tar.gz -d
 - export TZ=america/new-york
 - tar xvf encrypted_files.tar.gz
-- mv src/email_password.txt src/tests
-- mv src/firestore_creds.json src/tests
+- mv src/email_password.txt tests
+- mv src/firestore_creds.json tests
 jobs:
   include:
   - stage: Python3.6
@@ -14,14 +14,14 @@ jobs:
     python: 3.6
     install: pip install -r dev-requirements.txt
     script:
-    - cd src/tests
+    - cd tests
     - pytest --emoji
   - stage: Python3.7
     language: python
     python: 3.7
     install: pip install -r dev-requirements.txt
     script:
-    - cd src/tests
+    - cd tests
     - pytest --emoji
   - stage: Docker-Container
     language: generic

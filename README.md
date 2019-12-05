@@ -41,3 +41,6 @@ Install the requirements by doing the following:
 Once you have installed the requirements, you can now run the program! You run the program by inputting the following command once you are in the src folder:
 
 `python3 main.py`
+
+If you are using docker then run:
+`docker run -v ~/secrets:src/secrets ghsapp/server-monitor`

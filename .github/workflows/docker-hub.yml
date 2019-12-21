@@ -15,7 +15,7 @@ jobs:
           echo ${{ secrets.docker_password }} | docker login -u ${{ secrets.docker_id }} --password-stdin
       - name: Building Production Image
         run: |
-          docker build -t ghsapp/server-monitor:intelCPU .
+          docker build -t ghsapp/server-monitor .
       - name: Pushing to Docker Hub
         run: |
-          docker push ghsapp/server-monitor:intelCPU
+          docker push ghsapp/server-monitor

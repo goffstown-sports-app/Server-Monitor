@@ -9,7 +9,7 @@ COPY dev-requirements.txt /requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 
-COPY /src /src
+COPY /serverMonitor /serverMonitor
 COPY /tests /tests
 
 WORKDIR /tests

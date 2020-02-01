@@ -14,9 +14,9 @@ COPY requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt
 
 # Copying over files
-COPY /src /src
+COPY /serverMonitor /serverMonitor
 RUN find . -name \*.json -type f -delete
-WORKDIR /src
+WORKDIR /serverMonitor
 
 # Running program
 CMD ["python3", "main.py"]
